@@ -161,7 +161,7 @@ async def get_stats() -> str:
     if EM.SHOW_TOTAL_CODE_TIME:
         DBM.i("Adding total code time info...")
         data = await DM.get_remote_json("waka_all")
-        stats += f"![Code Time](http://img.shields.io/badge/{quote('Code Time')}-{quote(str(data['data']['text']))}-blue)\n\n"
+        stats += f"![Code Time](http://img.shields.io/badge/{quote('Code Time')}-{quote(str(data['data']['text']))}-teal?style=for-the-badge)\n\n"
 
     if EM.SHOW_PROFILE_VIEWS:
         DBM.i("Adding profile views info...")
@@ -172,7 +172,7 @@ async def get_stats() -> str:
         DBM.i("Adding lines of code info...")
         total_loc = sum([yearly_data[y][q][d]["add"] for y in yearly_data.keys() for q in yearly_data[y].keys() for d in yearly_data[y][q].keys()])
         data = f"{intword(total_loc)} {FM.t('Lines of code')}"
-        stats += f"![Lines of code](https://img.shields.io/badge/{quote(FM.t('From Hello World I have written'))}-{quote(data)}-blue)\n\n"
+        stats += f"![Lines of code](https://img.shields.io/badge/{quote(FM.t('From Hello World I have written'))}-{quote(data)}-teal?style=for-the-badge)\n\n"
 
     if EM.SHOW_SHORT_INFO:
         stats += await get_short_github_info()
